@@ -27,7 +27,7 @@ class User{
 	
 //Display all users in database.... section	
 	function displayAllUser() {
-		$sql = "SELECT id, createddate, duedate, message FROM todos WHERE owneremail = '$email';
+		$sql = "SELECT id, createddate, duedate, message FROM todos WHERE owneremail = '$email' AND isdone != 1;
 		$result = $this->connection->query($sql);
 		echo "Displays all users";
 		echo '<form action="action.php" method="post">';
