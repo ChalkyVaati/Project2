@@ -27,6 +27,7 @@ class User{
 	
 //Display all users in database.... section	
 	function displayAllUser() {
+		$email = $_SESSION["email"];
 		$sql = "SELECT id, createddate, duedate, message FROM todos WHERE owneremail = '$email' AND isdone != 1";
 		$result = $this->connection->query($sql);
 		echo "Displays all users";
@@ -44,16 +45,16 @@ class User{
 			echo "<td>".$row["createddate"]."</td>";
 			echo "<td>".$row["duedate"]."</td>";
 			echo "<td>".$row["message"]."</td>";
-			echo "<td><input type="submit" name="AddItem"/></td>";
-			echo "<td><input type="submit" name="deleteItem" value="'.$row["id"].'" /></td>";
-			echo "<td><input type="submit" name="EditItem" value="'.$row["id"].'" /></td>";
-			echo "<td><input type="submit" name="CheckItem" value="'.$row["id"].'" /></td>";
+			echo '<td><button type="submit" name="AddItem" />Add</td>"';
+			echo '<td><button type="submit" name="DeleteItem" value="'.$row['id'].'" />Delete</td>"';
+			echo '<td><button type="submit" name="EditItem" value="'.$row['id'].'" />Edit</td>"';
+			echo '<td><button type="submit" name="CheckItem" value="'.$row['id'].'" />Check</td>"';
 			echo "</tr>";
     	}
     	echo "</table>";
 		echo "<br>";
 	}
-	
+}
 	$user = new User();
 $user->displayAllUser();
 ?>
