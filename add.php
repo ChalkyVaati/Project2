@@ -17,26 +17,26 @@ error_reporting(E_ALL); ini_set('display_errors', '1');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
-	    $servername = "sql2.njit.edu";
-		$username = "jcm44";
-		$password = "lq40ntX5";
-		$dbname = "jcm44";
+   $servername = "sql2.njit.edu";
+	$username = "jcm44";
+	$password = "lq40ntX5";
+	$dbname = "jcm44";
 		
-		try {
-			$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-			//echo "Connected Successfully! <br>";
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	try {
+		$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+		//echo "Connected Successfully! <br>";
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
-	$email = $_SESSION["email"];
-	$task = ($_POST["task"]);
-	$ddate = ($_POST["ddate"]);
-	$cdate = ($_POST["cdate"]);
-	$isdone = 0;
+		$email = $_SESSION["email"];
+		$task = ($_POST["task"]);
+		$ddate = ($_POST["ddate"]);
+		$cdate = ($_POST["cdate"]);
+		$isdone = 0;
 
-    $query = "INSERT INTO todos (owneremail, createddate, duedate, message, isdone)
+		$query = "INSERT INTO todos (owneremail, createddate, duedate, message, isdone)
               VALUES ('$email', '$cdate', '$ddate', '$task', '$isdone')";
-    $statement = $conn->prepare($query);
-    $statement->execute();
+		$statement = $conn->prepare($query);
+		$statement->execute();
     } 
 	catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
