@@ -25,6 +25,8 @@ if(isset($_POST['deleteItem'])) {
 }
 
 if(isset($_POST['EditItem'])) {
+	$edit = $_POST['EditItem'];
+	$_SESSION["edit"] = "$edit";
 	header( 'Location: edit.php' );
 }
 
