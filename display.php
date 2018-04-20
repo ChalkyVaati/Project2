@@ -3,6 +3,28 @@ session_start();
 ?>
 <!DOCTYPE html>
 <head>
+<style>
+  .btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: 4px;
+	text-decoration:none;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+</style>
 </head>
 <body>
 <div>
@@ -45,7 +67,6 @@ class User{
 			echo "<td>".$row["createddate"]."</td>";
 			echo "<td>".$row["duedate"]."</td>";
 			echo "<td>".$row["message"]."</td>";
-			echo '<td><button type="submit" name="AddItem" />Add</td>"';
 			echo '<td><button type="submit" name="DeleteItem" value="'.$row['id'].'" />Delete</td>"';
 			echo '<td><button type="submit" name="EditItem" value="'.$row['id'].'" />Edit</td>"';
 			echo '<td><button type="submit" name="CheckItem" value="'.$row['id'].'" />Check</td>"';
@@ -53,6 +74,7 @@ class User{
     	}
     	echo "</table>";
 		echo "<br>";
+		echo '<a href="add.php" class="btn btn-primary">Add Task</a>';
 	}
 }
 	$user = new User();
