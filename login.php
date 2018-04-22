@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					if ($v != '' && $Upassword != ''){
 						$conn = null;
 						$_SESSION["email"] = "$email";
-						header( 'Location: display.php' );
+						header( 'Location: MortalCombat.php' );
 						$conn = null;
 					}
 

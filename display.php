@@ -19,12 +19,29 @@ session_start();
 	text-decoration:none;
 }
 .btn-primary {
-    color: #fff;
-    background-color: #337ab7;
+    color: #830303;
+    background-color: #ffffff;
     border-color: #2e6da4;
+  font-family: 'Press Start 2P';
+  border: 1px dashed #830303;
 }
-
+  .btn-primary:hover {
+    color: #ffffff;
+    background-color: #830303;
+    transition: 1s;
+    border: 1px dashed #ffffff;
+  }
+  th {
+    color: #ffffff;
+    font-family: Work Sans;
+  }
+  td { 
+  color: white;
+  font-family: Work Sans;
+  }
 </style>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
 </head>
 <body>
 <div>
@@ -68,7 +85,7 @@ class User{
 			echo "<td style='font-size:80%'>".$row["message"]."</td>";
 			echo '<td style="font-size:80%"><button type="submit" name="DeleteItem" value="'.$row['id'].'" />Delete</td>"';
 			echo '<td style="font-size:80%"><button type="submit" name="EditItem" value="'.$row['id'].'" />Edit</td>"';
-			echo '<td style="font-size:80%"><button type="submit" name="CheckItem" value="'.$row['id'].'" />Check</td>"';
+			echo '<td style="font-size:80%; font-family: Work Sans;"><button id="Check" type="submit" name="CheckItem" value="'.$row['id'].'" />Check</td>"';
 			echo "</tr>";
     	}
 		echo "<tr>";

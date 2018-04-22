@@ -93,6 +93,7 @@ body {
   height: 100%;
   width: 50%;
   background-color: #830303;
+  overflow:scroll;
 }
 #three {
   background-color: blue;
@@ -107,6 +108,7 @@ body {
   width: 50%;
   background-color: #139334;
   float: right;
+  overflow:scroll;
 }
 #lal {
    padding-top: 15px;

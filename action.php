@@ -20,6 +20,7 @@ if(isset($_POST['DeleteItem'])) {
 		$query = "DELETE FROM todos WHERE id = '$delete'";
 		$statement = $conn->prepare($query);
 		$statement->execute();
+		header( 'Location: MortalCombat.php' );
     } 
 	catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
@@ -50,6 +51,7 @@ if(isset($_POST['CheckItem'])) {
 		$query = "UPDATE todos SET isdone = '$isdone' WHERE owneremail = '$email' AND id = '$check'";
 		$statement = $conn->prepare($query);
 		$statement->execute();
+		header( 'Location: MortalCombat.php' );
 	}
 	catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();

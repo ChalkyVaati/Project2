@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Login</title>
+  <title>Edit</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$query = "UPDATE todos SET message = '$task', duedate = '$ddate' WHERE owneremail = '$email' AND id = '$edit'";
 		$statement = $conn->prepare($query);
 		$statement->execute();
+		header( 'Location: MortalCombat.php' );
     } 
 	catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
