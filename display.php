@@ -6,7 +6,7 @@ session_start();
 <style>
   .btn {
     display: inline-block;
-    padding: 6px 12px;
+    padding: 4px 8px;
     margin-bottom: 0;
     font-size: 14px;
     font-weight: 400;
@@ -52,30 +52,31 @@ class User{
 		$email = $_SESSION["email"];
 		$sql = "SELECT id, createddate, duedate, message FROM todos WHERE owneremail = '$email' AND isdone != 1";
 		$result = $this->connection->query($sql);
-		echo "Displays all users";
-		echo '<form action="action.php" method="post">';
-		echo '<table style="border-style: ridge; border-width:6px">';
-		echo '<th style="text=align:center;font-weight:bold">ID</th>';
-		echo '<th style="text=align:center;font-weight:bold">Created Date</th>';
-		echo '<th style="text=align:center;font-weight:bold">Due Date</th>';
-		echo '<th style="text=align:center;font-weight:bold">To Do</th>';
+		echo '<form action="action.php" method="post" style="font-size:50%">';
+		echo '<table>';
+		echo '<th style="text=align:center;font-weight:bold; font-size:80%">ID</th>';
+		echo '<th style="text=align:center;font-weight:bold; font-size:80%">Created Date</th>';
+		echo '<th style="text=align:center;font-weight:bold; font-size:80%">Due Date</th>';
+		echo '<th style="text=align:center;font-weight:bold; font-size:80%">To Do</th>';
 		echo '</tr>';
 		
 		while($row = $result->fetch_assoc()) {
 			echo "<tr>";
-			echo "<td>".$row["id"]."</td>";
-			echo "<td>".$row["createddate"]."</td>";
-			echo "<td>".$row["duedate"]."</td>";
-			echo "<td>".$row["message"]."</td>";
-			echo '<td><button type="submit" name="DeleteItem" value="'.$row['id'].'" />Delete</td>"';
-			echo '<td><button type="submit" name="EditItem" value="'.$row['id'].'" />Edit</td>"';
-			echo '<td><button type="submit" name="CheckItem" value="'.$row['id'].'" />Check</td>"';
+			echo "<td style='font-size:80%'>".$row["id"]."</td>";
+			echo "<td style='font-size:80%'>".$row["createddate"]."</td>";
+			echo "<td style='font-size:80%'>".$row["duedate"]."</td>";
+			echo "<td style='font-size:80%'>".$row["message"]."</td>";
+			echo '<td style="font-size:80%"><button type="submit" name="DeleteItem" value="'.$row['id'].'" />Delete</td>"';
+			echo '<td style="font-size:80%"><button type="submit" name="EditItem" value="'.$row['id'].'" />Edit</td>"';
+			echo '<td style="font-size:80%"><button type="submit" name="CheckItem" value="'.$row['id'].'" />Check</td>"';
 			echo "</tr>";
     	}
+		echo "<tr>";
+		echo '<td><a href="add.php" class="btn btn-primary">Add Task</a></td>';
+		echo "</tr>";
     	echo "</table>";
-		echo "<br>";
-		echo '<a href="add.php" class="btn btn-primary">Add Task</a>';
 	}
+	
 }
 	$user = new User();
 $user->displayAllUser();

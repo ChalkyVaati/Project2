@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <head>
 </head>
@@ -9,8 +7,8 @@ session_start();
 <?php
 error_reporting(E_ALL); ini_set('display_errors', '1');
 $email = $_SESSION["email"];
-class User{
-	function User() {
+class User2{
+	function User2() {
 		$servername = "sql2.njit.edu";
 		$username = "jcm44";
 		$password = "lq40ntX5";
@@ -26,33 +24,31 @@ class User{
 	}
 	
 //Display all users in database.... section	
-	function displayAllUser() {
+	function displayAllUser2() {
 		$email = $_SESSION["email"];
-		$sql = "SELECT id, createddate, duedate, message FROM todos WHERE owneremail = '$email' AND isdone === 1";
+		$sql = "SELECT id, createddate, duedate, message FROM todos WHERE owneremail = '$email' AND isdone != 0";
 		$result = $this->connection->query($sql);
-		echo "Displays all users";
-		echo '<form action="action.php" method="post">';
-		echo '<table style="border-style: ridge; border-width:6px">';
-		echo '<th style="text=align:center;font-weight:bold">ID</th>';
-		echo '<th style="text=align:center;font-weight:bold">Created Date</th>';
-		echo '<th style="text=align:center;font-weight:bold">Due Date</th>';
-		echo '<th style="text=align:center;font-weight:bold">To Do</th>';
+		echo '<table>';
+		echo '<th style="text=align:center;font-weight:bold; font-size:50%">ID</th>';
+		echo '<th style="text=align:center;font-weight:bold; font-size:50%">Created Date</th>';
+		echo '<th style="text=align:center;font-weight:bold; font-size:50%">Due Date</th>';
+		echo '<th style="text=align:center;font-weight:bold; font-size:50%">To Do</th>';
 		echo '</tr>';
 		
 		while($row = $result->fetch_assoc()) {
 			echo "<tr>";
-			echo "<td>".$row["id"]."</td>";
-			echo "<td>".$row["createddate"]."</td>";
-			echo "<td>".$row["duedate"]."</td>";
-			echo "<td>".$row["message"]."</td>";
+			echo "<td style='font-size:50%'>".$row["id"]."</td>";
+			echo "<td style='font-size:50%'>".$row["createddate"]."</td>";
+			echo "<td style='font-size:50%'>".$row["duedate"]."</td>";
+			echo "<td style='font-size:50%'>".$row["message"]."</td>";
 			echo "</tr>";
     	}
     	echo "</table>";
 		echo "<br>";
 	}
 }
-	$user = new User();
-$user->displayAllUser();
+	$user = new User2();
+$user->displayAllUser2();
 ?>
 </div>
 </html>

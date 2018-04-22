@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$ddate = ($_POST["ddate"]);
 		$edit = $_SESSION["edit"];
 
-		$query = "UPDATE todos (message, duedate) VALUES ('$task', '$ddate') WHERE owneremail = '$email' AND id = '$edit'";
+		$query = "UPDATE todos SET message = '$task', duedate = '$ddate' WHERE owneremail = '$email' AND id = '$edit'";
 		$statement = $conn->prepare($query);
 		$statement->execute();
     } 
