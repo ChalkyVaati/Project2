@@ -26,6 +26,11 @@
 		<?php include('display2.php'); ?>
     </div>
     </div>
+	<div style="bottom:0; height:20px; width:100%; background-color:grey">
+		<div style="margin:auto; width:40px">
+			<a href="loggout.php" style="height:20px; background-color:grey; color:white">Loggout</a>
+		</div>
+	</div>
     
     
   </body>
